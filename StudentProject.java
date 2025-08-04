@@ -41,6 +41,7 @@ public class StudentProject {
         ProjectStudents s2 = new ProjectStudents("James", 5, "Goo Goo");
 
         s1.Display();
+        System.out.println();
         s2.Display();
 
         s2.SubmitProject("AI Robot");
