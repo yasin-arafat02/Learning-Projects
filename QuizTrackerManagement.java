@@ -28,13 +28,20 @@ class QuizTaker extends User {
     }
 }
 
-class Admin extends User {
-    Admin(String id, String name, String pass) {
-        super(id, name, pass);
+
+    // -----------------Admin Panel---------------//
+
+class AdminPanel extends User{
+    AdminPanel(String userID,String username,String password){
+        super(userID,username,password);
+    }
+    void addQuestion(Quiz quiz, Question q){
+        quiz.questions.add(q);
     }
 }
 
-// -----------------Question class---------------//
+
+    // -----------------Question class---------------//
 
 class Question {
     String questionId;
@@ -93,12 +100,20 @@ public class QuizTrackerManagement {
         // -----------------Polymorphism demo---------------//
 
         User u;
-        u = new QuizTaker("288", "Shibloo", "S12S");
-        u.login();
-        u.logout();
+    u = new QuizTaker("288", "Shibloo", "S12S");
+    u.login();
+    u.logout();
 
-        u = new Admin("442", "Mahmuda", "Masu");
-        u.login();
-        u.logout();
+    AdminPanel admin = new AdminPanel("442", "Mahmuda", "Masu");
+    admin.login();
+
+    Quiz quiz = new Quiz("QZ01", "Java Basics", "Basic Java Quiz");
+    Question q1 = new Question("Q1", "What is JVM?", "Java Virtual Machine", 5, "MCQ");
+    q1.addOption("Java Virtual Machine");
+    q1.addOption("Java Variable Method");
+    q1.addOption("Join Virtual Memory");
+
+    admin.addQuestion(quiz, q1);
+
     }
 }
