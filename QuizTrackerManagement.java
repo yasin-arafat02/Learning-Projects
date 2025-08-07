@@ -29,7 +29,7 @@ class QuizTaker extends User {
 }
 
 
-    // -----------------Admin Panel---------------//
+    // -----------------Admin Panel----------------//
 
 class AdminPanel extends User{
     AdminPanel(String userID,String username,String password){
